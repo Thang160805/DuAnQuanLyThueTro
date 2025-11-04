@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/DK_DN.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="split-container">
+
+        <div class="split-left">
+            <div class="welcome-text">
+                <h1>Tham gia cùng chúng tôi</h1>
+                <p>Khám phá và kết nối ngay hôm nay.</p>
+            </div>
+        </div>
+
+        <div class="split-right">
+            <div class="auth-form-container">
+                <a href="index.html" class="back-link">&larr; Quay lại trang chủ</a>
+                <h2>Tạo tài khoản</h2>
+                <div class="error-message" id="email-error">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span class="error-text"></span>
+                </div>
+                <form id="register-form">
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" name="username" placeholder="Tên đăng nhập" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+                    </div>
+
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-check-double"></i>
+                        <input type="password" id="confirm-password" name="confirm-password"
+                            placeholder="Xác nhận mật khẩu" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Tạo tài khoản</button>
+                </form>
+
+                <div class="toggle-link">
+                    <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="DK_DN.js"></script>
+</body>
+
+</html>
