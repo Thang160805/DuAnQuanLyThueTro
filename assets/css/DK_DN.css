@@ -123,6 +123,27 @@ body {
     box-shadow: 0 0 0 3px rgba(0,123,255,0.15);
 }
 
+.input-group .option-role{
+    position: absolute;
+    top: 25px;
+}
+
+.input-group select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    padding-left: 20px;
+    color: #aaa;
+    font-size: 1.2rem;
+}
+
+.input-group select:focus {
+    border-color: #6a5acd;
+}
+
 /* Thông báo lỗi */
 .error-message {
  /* Ẩn ban đầu, JS sẽ cho hiện ra */
