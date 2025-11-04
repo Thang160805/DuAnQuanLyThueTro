@@ -123,6 +123,19 @@
 .new-room{
   padding: 60px 40px;
 }
+
+.new-room .room-card{
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.new-room .room-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
 .new-room .body h1{
   font-size: 28px;
   font-weight: 700;
