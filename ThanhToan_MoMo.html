@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --momo-color: #ae2070;
+            /* Màu hồng đặc trưng của Momo */
+            --secondary-color: #6c757d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --border-color: #dee2e6;
+            --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--dark-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .momo-container {
+            max-width: 500px;
+            /* Nhỏ gọn cho QR code */
+            width: 100%;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .momo-header {
+            background-color: var(--momo-color);
+            padding: 30px;
+            color: #fff;
+        }
+
+        .momo-header img {
+            max-height: 40px;
+            margin-bottom: 15px;
+        }
+
+        .momo-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .momo-body {
+            padding: 30px 40px;
+        }
+
+        .momo-instructions {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .momo-qr-code {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 25px;
+            border: 5px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        .order-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .order-details li {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.05rem;
+        }
+
+        .order-details li:last-child {
+            border-bottom: none;
+        }
+
+        .order-details .label {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .order-details .value {
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .order-details .value.amount {
+            color: var(--momo-color);
+            font-size: 1.3rem;
+        }
+
+        .momo-footer {
+            background-color: var(--light-color);
+            padding: 30px 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .momo-footer .countdown {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .momo-footer .countdown span {
+            font-weight: 700;
+            color: #dc3545;
+        }
+
+        .btn-cancel {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .btn-cancel:hover {
+            color: var(--dark-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="momo-container">
+        
+        <div class="momo-header">
+            <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Logo Momo">
+            <h2>Thanh toán qua Ví Momo</h2>
+        </div>
+
+        <div class="momo-body">
+            
+            <p class="momo-instructions">Mở ứng dụng Momo của bạn để quét mã QR</p>
+            
+                        <img src="./assets/img/momo.png" 
+                 alt="Mã QR Thanh toán Momo" class="momo-qr-code">
+            
+            <ul class="order-details">
+                <li>
+                    <span class="label">Số tiền:</span>
+                    <span class="value amount">1.500.000 VNĐ</span>
+                </li>
+                <li>
+                    <span class="label">Mã đơn hàng:</span>
+                    <span class="value">PHONG001-123456</span>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="momo-footer">
+            <div class="countdown">
+                Giao dịch sẽ hết hạn sau: <span id="timer">10:00</span>
+            </div>
+            <a href="thanhToan.jsp" class="btn-cancel">
+                <i class="fas fa-arrow-left"></i> Hủy giao dịch
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // (Tùy chọn) Thêm đồng hồ đếm ngược 10 phút
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                    display.textContent = "Hết hạn";
+                    // (Bạn có thể thêm logic tự động hủy ở đây)
+                }
+            }, 1000);
+        }
+        
+        window.onload = function () {
+            let tenMinutes = 60 * 10 - 1;
+            let display = document.querySelector('#timer');
+            startTimer(tenMinutes, display);
+        };
+    </script>
+</body>
+
+</html>

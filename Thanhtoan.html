@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/ThanhToan.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100 p-20">
+        <div class="body">
+            <div class="payment-container">
+        
+        <div class="payment-methods">
+            <a href="ChiTietPhongServlet?id=1" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Quay lại
+            </a>
+            
+            <h2>Phương thức thanh toán</h2>
+            
+            <form id="payment-form" action="TaoThanhToanServlet" method="POST">
+                <label class="payment-option" for="vnpay">
+                    <input type="radio" id="vnpay" name="paymentMethod" value="vnpay" checked>
+                    <div class="check-circle"></div>
+                    <img class="vnpay" src="./assets/img/vnpay.png" alt="VNPay QR">
+                    <span class="option-label">Thanh toán qua VNPay QR</span>
+                </label>
+                
+                <label class="payment-option" for="momo">
+                    <input type="radio" id="momo" name="paymentMethod" value="momo">
+                    <div class="check-circle"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Ví Momo">
+                    <span class="option-label">Ví điện tử Momo</span>
+                </label>
+
+                <label class="payment-option" for="card">
+                    <input type="radio" id="card" name="paymentMethod" value="card">
+                    <div class="check-circle"></div>
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-visa-3-226460.png" alt="Thẻ quốc tế" style="height: 25px;">
+                    <span class="option-label">Thẻ Tín dụng / Ghi nợ</span>
+                </label>
+                
+                 <label class="payment-option" for="transfer">
+                    <input type="radio" id="transfer" name="paymentMethod" value="transfer">
+                    <div class="check-circle"></div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1019/1019702.png" alt="Bank Transfer" style="height: 30px;">
+                    <span class="option-label">Chuyển khoản ngân hàng</span>
+                </label>
+
+                </form>
+        </div>
+
+        <div class="order-summary">
+            <h3>Chi tiết thanh toán</h3>
+            
+            <div class="summary-room">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="Phòng trọ" class="room-image">
+                <div class="room-details">
+                    <h4>Phòng trọ cao cấp, 123 Lê Duẩn</h4>
+                    <p>Loại thanh toán: Tiền cọc 1 tháng</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="line-item">
+                <span>Tiền cọc:</span>
+                <strong>1.500.000 VNĐ</strong>
+            </div>
+            
+            <div class="line-item">
+                <span>Phí dịch vụ:</span>
+                <strong>Miễn phí</strong>
+            </div>
+
+            <hr>
+
+            <div class="total">
+                <span>Tổng cộng:</span>
+                <strong>1.500.000 VNĐ</strong>
+            </div>
+            
+            <button type="submit" class="btn-pay" form="payment-form">
+                <i class="fas fa-shield-alt"></i>
+                Thanh toán 1.500.000 VNĐ
+            </button>
+            
+            <div class="secure-badge">
+                <i class="fas fa-lock"></i>
+                Thông tin của bạn được bảo mật
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+
+        <!-- Nhúng JS bootstrap -->
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/ThanhToan.js"></script>
+</body>
+</html>

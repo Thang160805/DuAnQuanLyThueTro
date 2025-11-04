@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --border-color: #dee2e6;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--dark-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 1. Khung Thanh toán chính */
+        .card-payment-container {
+            max-width: 900px;
+            /* Rộng rãi */
+            width: 100%;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            /* Chia 2 cột: Thông tin & Form */
+        }
+
+        /* 2. Cột Trái: Thông tin đơn hàng */
+        .order-summary-panel {
+            background-color: var(--light-color);
+            padding: 40px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order-summary-panel .merchant-logo {
+            max-width: 150px;
+            margin-bottom: 30px;
+        }
+
+        .order-summary-panel h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .order-details-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .order-details-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .order-details-list .label {
+            color: var(--secondary-color);
+        }
+
+        .order-details-list .value {
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .order-details-list .total {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .order-details-list .total .label {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+
+        .order-details-list .total .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .security-footer {
+            text-align: center;
+            margin-top: auto;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .security-footer i {
+            color: #28a745;
+            margin-right: 5px;
+        }
+
+        .security-footer .gateway-logo {
+            max-height: 70px;
+            opacity: 0.7;
+            margin-top: 15px;
+        }
+
+        /* 3. Cột Phải: Form Nhập thẻ */
+        .payment-form-panel {
+            padding: 40px;
+            position: relative;
+        }
+
+        .payment-form-panel .timer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #dc3545;
+            background: #fff0f1;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        /* 3.1. Thẻ Tín dụng Trực quan (Rất đẹp) */
+        .card-visual {
+            width: 300px;
+            height: 180px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 0 auto 30px auto;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+            position: relative;
+        }
+
+        .card-visual .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-visual .logo img {
+            width: 90px;
+            height: 40px;
+            border-radius: 6px;
+        }
+
+        .card-visual .card-logo {
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+
+        .card-visual .card-number-display {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 25px;
+            letter-spacing: 2px;
+            height: 25px;
+            /* Giữ chiều cao cố định */
+        }
+
+        .card-visual .card-footer-display {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .card-visual .card-name-display {
+            font-weight: 600;
+            width: 70%;
+            height: 20px;
+            /* Giữ chiều cao */
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .card-visual .card-expiry-display {
+            font-weight: 600;
+            height: 20px;
+            /* Giữ chiều cao */
+        }
+
+        /* 3.2. Form nhập liệu */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            /* Chữ to rõ */
+            font-family: 'Nunito', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            top: 50%;
+            right: 18px;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            width: 50%;
+        }
+
+        .form-group .cvv-tooltip {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .form-group .cvv-tooltip i {
+            font-size: 0.8rem;
+        }
+
+        .btn-pay {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .btn-pay:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .cancel-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-payment-container">
+
+        <div class="order-summary-panel">
+            <img src="./assets/img/logo.png" alt="PhongTroVinh Logo" class="merchant-logo">
+
+            <h3>Thanh toán cho PhongTroVinh</h3>
+
+            <ul class="order-details-list">
+                <li>
+                    <span class="label">Nội dung:</span>
+                    <span class="value">Đặt cọc phòng PHONG001</span>
+                </li>
+                <li>
+                    <span class="label">Mã đơn hàng:</span>
+                    <span class="value">PHONG001-123456</span>
+                </li>
+
+                <li class="total">
+                    <span class="label">Tổng cộng:</span>
+                    <span class="value">1.500.000đ</span>
+                </li>
+            </ul>
+
+            <div class="security-footer">
+                <p><i class="fas fa-shield-alt"></i> Giao dịch bảo mật được cung cấp bởi</p>
+                <img src="./assets/img/vnpay.png" alt="VNPay Logo" class="gateway-logo">
+            </div>
+        </div>
+
+        <div class="payment-form-panel">
+            <div class="timer" id="timer">14:59</div>
+
+            <div class="card-visual">
+                <div class="card-header">
+                    <div class="logo">
+                        <img src="./assets/img/logoMB.png" alt="">
+                    </div>
+                    <div class="card-logo">
+                        <i id="card-logo-icon" class="fab fa-cc-visa"></i>
+                    </div>
+                </div>
+                <div class="card-number-display" id="card-number-visual">
+                    4089 04•• •••• 8160
+                </div>
+                <div class="card-footer-display">
+                    <div id="card-name-visual">HOANG MINH THANG</div>
+                    <div id="card-expiry-visual">09/26</div>
+                </div>
+            </div>
+
+            <form id="secure-payment-form" action="VNPayReturnServlet" method="POST">
+                <div class="form-group">
+                    <label for="card-number">Số thẻ</label>
+                    <div class="input-wrapper">
+                        <input type="tel" id="card-number" placeholder="4000 1234 5678 9010" maxlength="19">
+                        <i id="card-brand-icon" class="fab fa-cc-visa"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="card-name">Họ và tên chủ thẻ</label>
+                    <input type="text" id="card-name" placeholder="NGUYEN VAN A">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="card-expiry">Ngày hết hạn</label>
+                        <input type="tel" id="card-expiry" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-cvc">CVV/CVC</label>
+                        <input type="tel" id="card-cvc" placeholder="123" maxlength="4">
+                        <span class="cvv-tooltip"><i class="fas fa-question-circle"></i> 3-4 số cuối</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-pay">
+                    Thanh toán 1.500.000đ
+                </button>
+
+                <a href="#" class="cancel-link">Hủy giao dịch</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- JAVASCRIPT ĐỂ MÔ PHỎNG THẺ TRỰC QUAN ---
+
+        const cardNumberInput = document.getElementById('card-number');
+        const cardNameInput = document.getElementById('card-name');
+        const cardExpiryInput = document.getElementById('card-expiry');
+
+        const cardNumberVisual = document.getElementById('card-number-visual');
+        const cardNameVisual = document.getElementById('card-name-visual');
+        const cardExpiryVisual = document.getElementById('card-expiry-visual');
+
+        const cardBrandIcon = document.getElementById('card-brand-icon');
+        const cardLogoIcon = document.getElementById('card-logo-icon');
+
+        // 1. Cập nhật số thẻ
+        cardNumberInput.addEventListener('keyup', (e) => {
+            let value = e.target.value.replace(/\D/g, ''); // Xóa ký tự không phải số
+
+            // Tự động thêm dấu cách
+            let formattedValue = value.replace(/(.{4})/g, '$1 ').trim();
+            e.target.value = formattedValue;
+
+            // Cập nhật thẻ trực quan
+            cardNumberVisual.textContent = formattedValue || '#### #### #### ####';
+
+            // Nhận diện thương hiệu thẻ
+            let brand = 'fa-credit-card'; // Mặc định
+            let logo = 'fa-credit-card';
+            if (/^4/.test(value)) {
+                brand = 'fa-cc-visa';
+                logo = 'fa-cc-visa';
+            } else if (/^5[1-5]/.test(value)) {
+                brand = 'fa-cc-mastercard';
+                logo = 'fa-cc-mastercard';
+            } else if (/^3[47]/.test(value)) {
+                brand = 'fa-cc-amex';
+                logo = 'fa-cc-amex';
+            } else if (/^35/.test(value)) {
+                brand = 'fa-cc-jcb';
+                logo = 'fa-cc-jcb';
+            }
+            cardBrandIcon.className = `fab ${brand}`;
+            cardLogoIcon.className = `fab ${logo}`;
+        });
+
+        // 2. Cập nhật tên
+        cardNameInput.addEventListener('keyup', (e) => {
+            let value = e.target.value.toUpperCase();
+            e.target.value = value;
+            cardNameVisual.textContent = value || 'HỌ VÀ TÊN';
+        });
+
+        // 3. Cập nhật ngày hết hạn
+        cardExpiryInput.addEventListener('keyup', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+            cardExpiryVisual.textContent = value || 'MM/YY';
+        });
+
+        // --- Đồng hồ đếm ngược ---
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                    display.textContent = "Hết hạn";
+                    // Tắt form khi hết hạn
+                    document.getElementById('secure-payment-form').style.display = 'none';
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let fifteenMinutes = 60 * 15 - 1;
+            let display = document.querySelector('#timer');
+            startTimer(fifteenMinutes, display);
+        };
+    </script>
+</body>
+
+</html>

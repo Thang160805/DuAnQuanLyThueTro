@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+       <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/TimPhong.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="header fixed">
+        <div class="container">
+            <div class="body d-flex justify-content-between align-items-center">
+                <a href="" class="logo">
+                    <img src="./assets/img/logo.png" alt />
+                    <span class="title">TroVinh</span>
+                </a>
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li><a href="homepage.html">Trang chủ</a></li>
+                        <li><a href="GioiThieu.html">Giới thiệu</a></li>
+                        <li><a href="LienHe.html">Liên hệ</a></li>
+                        <li><a href="TimPhong.html" class="active">Tìm phòng</a></li>
+                    </ul>
+
+                </nav>
+
+                <a href="profile.html" class="profile">
+                    <img class="avatar" src="./assets/img/avatar.jpg" alt="">
+                    <span>Xin chào, Thắng</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container">
+        <div class="search-page-layout">
+            
+            <aside class="filter-sidebar">
+                <form id="filter-form" action="TimKiemServlet" method="GET">
+                    <h3>Bộ lọc tìm kiếm</h3>
+                    <div class="filter-group">
+                        <label for="keyword">Tìm theo từ khóa</label>
+                        <input type="text" id="keyword" name="keyword" placeholder="Ví dụ: đường Lê Duẩn...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="location">Khu vực</label>
+                        <select id="location" name="khuVuc">
+                            <option value="">Tất cả khu vực</option>
+                            <option value="ben_thuy">P. Bến Thủy</option>
+                            <option value="trung_do">P. Trung Đô</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="price-range">Mức giá</label>
+                        <div class="price-range">
+                            <span>0 đ</span>
+                            <span id="price-value">10.000.000 đ</span>
+                        </div>
+                        <input type="range" id="price-range" name="mucGia" min="0" max="10000000" step="500000" value="10000000">
+                    </div>
+                    <div class="filter-group">
+                        <label for="area-range">Diện tích (m²)</label>
+                        <div class="price-range">
+                            <span>0 m²</span>
+                            <span id="area-value">50 m²</span>
+                        </div>
+                        <input type="range" id="area-range" name="dienTich" min="0" max="50" step="1" value="50">
+                    </div>
+                    <div class="filter-group">
+                        <label>Tiện ích</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="dieuhoa"> Điều hòa</label>
+                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="nonglanh"> Nóng lạnh</label>
+                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="wifi"> Wifi</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-apply-filter">
+                        <i class="fas fa-filter"></i> Áp dụng
+                    </button>
+                </form>
+            </aside>
+
+            <section class="results-area">
+                
+                <div class="sort-bar">
+                    <div class="results-count">
+                        Tìm thấy <strong>120</strong> kết quả
+                    </div>
+                    <div class="sort-options">
+                        <label for="sort-by">Sắp xếp:</label>
+                        <select id="sort-by" name="sapXep">
+                            <option value="moi_nhat">Mới nhất</option>
+                            <option value="gia_thap_cao">Giá: Thấp đến Cao</option>
+                            <option value="gia_cao_thap">Giá: Cao đến Thấp</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="room-grid">
+                    <a href="ChiTietPhongServlet?id=1" style="text-decoration: none;">
+                        <div class="room-card">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="Phòng trọ mẫu">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Phòng trọ đôi</h3>
+                                
+                                <div class="card-info-main">
+                                    <p><i class="fas fa-user"></i> Người đăng: Lê Bảo Ngọc</p>
+                                    <p><i class="fas fa-ruler-combined"></i> Diện tích: 20 m²</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 02 Đ.Nguyễn Kiệm</p>
+                                    <p class="card-price"><i class="fas fa-dollar-sign"></i> Giá thuê: 2.000.000</p>
+                                </div>
+                                
+                                <div class="card-info-meta">
+                                    <p><i class="fas fa-clock"></i> 2 tuần trước</p>
+                                    <p><i class="fas fa-eye"></i> Lượt xem: 0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="ChiTietPhongServlet?id=2" style="text-decoration: none;">
+                        <div class="room-card">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Phòng trọ mẫu 2">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Phòng trọ giá rẻ cho sinh viên</h3>
+                                <div class="card-info-main">
+                                    <p><i class="fas fa-user"></i> Người đăng: Trần Văn B</p>
+                                    <p><i class="fas fa-ruler-combined"></i> Diện tích: 15 m²</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 45 P.Trung Đô</p>
+                                    <p class="card-price"><i class="fas fa-dollar-sign"></i> Giá thuê: 1.300.000</p>
+                                </div>
+                                <div class="card-info-meta">
+                                    <p><i class="fas fa-clock"></i> 1 ngày trước</p>
+                                    <p><i class="fas fa-eye"></i> Lượt xem: 15</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    </div>
+
+                <nav class="pagination">
+                    <a href="?page=1" class="active">1</a>
+                    <a href="?page=2">2</a>
+                    <a href="?page=3">3</a>
+                </nav>
+
+            </section>
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <!-- Column 1 -->
+                <div class="footer__column footer-logo">
+                    <img src="./assets/img/logo.png" alt="">
+                    <span style="color: #4CAF50; font-size: 20px;">Tro</span><span
+                        style="color: #FB8C00; font-size: 20px;">Vinh</span>
+                </div>
+                <!-- Column 2 -->
+                <div class="footer__column">
+                    <h5 class="footer__heading">Về TroVinh</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="p-2"><a href="#">Trang chủ</a></li>
+                        <li class="p-2"><a href="#">Giới thiệu</a></li>
+                        <li class="p-2"><a href="#">Tìm phòng</a></li>
+                        <li class="p-2"><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div class="footer__column">
+                    <h5 class="text-white mb-3 fw-bold">Hỗ trợ khách hàng</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="p-2"><a href="#">Câu hỏi thường gặp (FAQ)</a></li>
+                        <li class="p-2"><a href="#">Hướng dẫn đăng tin</a></li>
+                        <li class="p-2"><a href="#">Chính sách bảo mật</a></li>
+                        <li class="p-2"><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div class="footer__column">
+                    <h5 class="text-white mb-3 fw-bold">Kết nối với chúng tôi</h5>
+                    <p class="text-white-50" style="font-size: 13px;">Theo dõi chúng tôi trên các nền tảng mạng xã hội.
+                    </p>
+                    <div class="social-icons mt-5">
+                        <a href="#" class="social-icon p-2 facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon p-2 zalo" aria-label="Zalo">
+                            <i class="fas fa-comment"></i>
+                        </a>
+                        <a href="#" class="social-icon p-2 Tiktok" aria-label="Tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="social-icon p-2 youtube" aria-label="Youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center text-white-50 small p-5">
+                    <p>&copy; 2025 TroVinh. Đã đăng ký bản quyền.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const priceSlider = document.getElementById('price-range');
+        const priceValue = document.getElementById('price-value');
+        
+        function formatCurrency(number) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number);
+        }
+
+        priceValue.textContent = formatCurrency(priceSlider.value);
+        priceSlider.addEventListener('input', (e) => {
+            priceValue.textContent = formatCurrency(e.target.value);
+        });
+
+        const areaSlider = document.getElementById('area-range');
+        const areaValue = document.getElementById('area-value');
+
+        areaValue.textContent = areaSlider.value + ' m²';
+        areaSlider.addEventListener('input', (e) => {
+            areaValue.textContent = e.target.value + ' m²';
+        });
+    </script>
+
+</body>
+</html>

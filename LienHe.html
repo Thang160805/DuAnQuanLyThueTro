@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/LienHe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <header class="header fixed">
+        <div class="container">
+            <div class="body d-flex justify-content-between align-items-center">
+                <a href="" class="logo">
+                    <img src="./assets/img/logo.png" alt />
+                    <span class="title">TroVinh</span>
+                </a>
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li><a href="homepage.html">Trang chủ</a></li>
+                        <li><a href="GioiThieu.html">Giới thiệu</a></li>
+                        <li><a href="LienHe.html"  class="active">Liên hệ</a></li>
+                        <li><a href="TimPhong.html">Tìm phòng</a></li>
+                    </ul>
+
+                </nav>
+
+                <a href="profile.html" class="profile">
+                    <img class="avatar" src="./assets/img/avatar.jpg" alt="">
+                    <span>Xin chào, Thắng</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="page-header">
+            <h1>Liên hệ với chúng tôi</h1>
+            <p>Chúng tôi luôn sẵn sàng lắng nghe bạn. Vui lòng điền vào biểu mẫu dưới đây hoặc sử dụng thông tin liên hệ
+                trực tiếp.</p>
+        </div>
+
+        <div class="contact-wrapper">
+
+            <div class="contact-info">
+                <h3>Thông tin liên hệ</h3>
+                <p>Bạn có thể liên hệ với văn phòng hỗ trợ của PhongTroVinh qua các kênh dưới đây.</p>
+
+                <ul class="info-list">
+                    <li class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-text">
+                            <strong>Địa chỉ:</strong>
+                            <span>182 Lê Duẩn, Phường Bến Thủy, Thành phố Vinh, Nghệ An</span>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-text">
+                            <strong>Email hỗ trợ:</strong>
+                            <span>hotro@phongtrovinh.com</span>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="info-text">
+                            <strong>Hotline:</strong>
+                            <span>0123.456.789 (Hỗ trợ sinh viên)</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Zalo"><i class="fas fa-comment-dots"></i></a>
+                    <a href="#" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Gửi tin nhắn cho chúng tôi</h3>
+
+                <form action="LienHeServlet" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hoTen">Họ và tên</label>
+                            <input type="text" id="hoTen" name="hoTen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chuDe">Chủ đề</label>
+                        <select id="chuDe" name="chuDe">
+                            <option value="hoTroKyThuat">Hỗ trợ kỹ thuật</option>
+                            <option value="baoCaoViPham">Báo cáo vi phạm</option>
+                            <option value="gopY">Đóng góp ý kiến</option>
+                            <option value_="khac">Khác</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="noiDung">Nội dung tin nhắn</label>
+                        <textarea id="noiDung" name="noiDung" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Gửi tin nhắn
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="map-section">
+            <h2>Vị trí của chúng tôi</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.1101298370536!2d105.69316507496644!3d18.659053382461565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3139cddf0bf20f23%3A0x86154b56a284fa6d!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBWaW5o!5e0!3m2!1svi!2s!4v1762087381636!5m2!1svi!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <!-- Column 1 -->
+                <div class="footer__column footer-logo">
+                    <img src="./assets/img/logo.png" alt="">
+                    <span style="color: #4CAF50; font-size: 20px;">Tro</span><span
+                        style="color: #FB8C00; font-size: 20px;">Vinh</span>
+                </div>
+                <!-- Column 2 -->
+                <div class="footer__column">
+                    <h5 class="footer__heading">Về TroVinh</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="p-2"><a href="#">Trang chủ</a></li>
+                        <li class="p-2"><a href="#">Giới thiệu</a></li>
+                        <li class="p-2"><a href="#">Tìm phòng</a></li>
+                        <li class="p-2"><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div class="footer__column">
+                    <h5 class="text-white mb-3 fw-bold">Hỗ trợ khách hàng</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="p-2"><a href="#">Câu hỏi thường gặp (FAQ)</a></li>
+                        <li class="p-2"><a href="#">Hướng dẫn đăng tin</a></li>
+                        <li class="p-2"><a href="#">Chính sách bảo mật</a></li>
+                        <li class="p-2"><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div class="footer__column">
+                    <h5 class="text-white mb-3 fw-bold">Kết nối với chúng tôi</h5>
+                    <p class="text-white-50" style="font-size: 13px;">Theo dõi chúng tôi trên các nền tảng mạng xã hội.
+                    </p>
+                    <div class="social-icons mt-5">
+                        <a href="#" class="social-icon p-2 facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon p-2 zalo" aria-label="Zalo">
+                            <i class="fas fa-comment"></i>
+                        </a>
+                        <a href="#" class="social-icon p-2 Tiktok" aria-label="Tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="social-icon p-2 youtube" aria-label="Youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center text-white-50 small p-5">
+                    <p>&copy; 2025 TroVinh. Đã đăng ký bản quyền.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nhúng JS bootstrap -->
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
