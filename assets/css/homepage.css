@@ -142,6 +142,18 @@
   margin-bottom: 30px;
 }
 
+.new-room .grid-room{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 7px;
+  row-gap: 10px;
+  
+}
+
+.grid-room .room-card{
+  padding: 10px;
+}
+
 .new-room .img-room img{
   width: 170px;
   height: 170px;
@@ -151,7 +163,7 @@
 .new-room .info-room{
   display: flex;
   flex-direction: column;
-  padding: 0 5px;
+  margin-left: 10px;
 }
 
 .new-room .room{
