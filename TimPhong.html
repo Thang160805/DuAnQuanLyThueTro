@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-       <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/TimPhong.css">
@@ -15,6 +16,7 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
 
     <header class="header fixed">
@@ -45,7 +47,7 @@
 
     <main class="container">
         <div class="search-page-layout">
-            
+
             <aside class="filter-sidebar">
                 <form id="filter-form" action="TimKiemServlet" method="GET">
                     <h3>Bộ lọc tìm kiếm</h3>
@@ -67,7 +69,8 @@
                             <span>0 đ</span>
                             <span id="price-value">10.000.000 đ</span>
                         </div>
-                        <input type="range" id="price-range" name="mucGia" min="0" max="10000000" step="500000" value="10000000">
+                        <input type="range" id="price-range" name="mucGia" min="0" max="10000000" step="500000"
+                            value="10000000">
                     </div>
                     <div class="filter-group">
                         <label for="area-range">Diện tích (m²)</label>
@@ -80,9 +83,12 @@
                     <div class="filter-group">
                         <label>Tiện ích</label>
                         <div class="checkbox-group">
-                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="dieuhoa"> Điều hòa</label>
-                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="nonglanh"> Nóng lạnh</label>
-                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="wifi"> Wifi</label>
+                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="dieuhoa"> Điều
+                                hòa</label>
+                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="nonglanh"> Nóng
+                                lạnh</label>
+                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="wifi">
+                                Wifi</label>
                         </div>
                     </div>
                     <button type="submit" class="btn-apply-filter">
@@ -92,18 +98,18 @@
             </aside>
 
             <section class="results-area">
-                
+
                 <div class="sort-bar">
                     <div class="results-count">
                         Tìm thấy <strong>120</strong> kết quả
                     </div>
-                    <div class="sort-options">
-                        <label for="sort-by">Sắp xếp:</label>
-                        <select id="sort-by" name="sapXep">
-                            <option value="moi_nhat">Mới nhất</option>
-                            <option value="gia_thap_cao">Giá: Thấp đến Cao</option>
-                            <option value="gia_cao_thap">Giá: Cao đến Thấp</option>
-                        </select>
+                    <div class="sort-links">
+                        <span>Sắp xếp:</span> <a
+                            href="${pageContext.request.contextPath}/ProcessHomeUser?sapXep=gia_thap_cao"
+                            class="active">
+                            Giá: Thấp → Cao </a> <a
+                            href="${pageContext.request.contextPath}/ProcessHomeUser?sapXep=gia_cao_thap" class="">
+                            Giá: Cao → Thấp </a>
                     </div>
                 </div>
 
@@ -111,18 +117,19 @@
                     <a href="ChiTietPhongServlet?id=1" style="text-decoration: none;">
                         <div class="room-card">
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="Phòng trọ mẫu">
+                                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
+                                    alt="Phòng trọ mẫu">
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title">Phòng trọ đôi</h3>
-                                
+
                                 <div class="card-info-main">
                                     <p><i class="fas fa-user"></i> Người đăng: Lê Bảo Ngọc</p>
                                     <p><i class="fas fa-ruler-combined"></i> Diện tích: 20 m²</p>
                                     <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 02 Đ.Nguyễn Kiệm</p>
                                     <p class="card-price"><i class="fas fa-dollar-sign"></i> Giá thuê: 2.000.000</p>
                                 </div>
-                                
+
                                 <div class="card-info-meta">
                                     <p><i class="fas fa-clock"></i> 2 tuần trước</p>
                                     <p><i class="fas fa-eye"></i> Lượt xem: 0</p>
@@ -130,11 +137,12 @@
                             </div>
                         </div>
                     </a>
-                    
+
                     <a href="ChiTietPhongServlet?id=2" style="text-decoration: none;">
                         <div class="room-card">
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Phòng trọ mẫu 2">
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267"
+                                    alt="Phòng trọ mẫu 2">
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title">Phòng trọ giá rẻ cho sinh viên</h3>
@@ -152,7 +160,7 @@
                         </div>
                     </a>
 
-                    </div>
+                </div>
 
                 <nav class="pagination">
                     <a href="?page=1" class="active">1</a>
@@ -227,7 +235,7 @@
     <script>
         const priceSlider = document.getElementById('price-range');
         const priceValue = document.getElementById('price-value');
-        
+
         function formatCurrency(number) {
             return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number);
         }
@@ -247,4 +255,5 @@
     </script>
 
 </body>
+
 </html>

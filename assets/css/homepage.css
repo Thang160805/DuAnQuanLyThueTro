@@ -148,6 +148,7 @@
   column-gap: 7px;
   row-gap: 10px;
   
+  
 }
 
 .grid-room .room-card{
@@ -178,7 +179,7 @@
             display: grid;
             /* Chia nội dung làm 2 cột như trong ảnh */
             grid-template-columns: 2fr 1fr; 
-            gap: 10px;
+            gap: 50px;
         }
         
         /* Tiêu đề (chiếm cả 2 cột) */
@@ -237,6 +238,27 @@
             width: 16px;
             text-align: center;
             color: var(--dark-color);
+        }
+
+        /* --- 6. Phân trang (Giữ nguyên) --- */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            list-style: none;
+            gap: 8px;
+        }
+        .pagination a {
+            text-decoration: none; color: var(--dark-color);
+            background: #fff; border: 1px solid var(--border-color);
+            padding: 10px 15px; border-radius: 8px; font-weight: 600;
+        }
+        .pagination a:hover,
+        .pagination a.active {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
         }
 
 /* footer */

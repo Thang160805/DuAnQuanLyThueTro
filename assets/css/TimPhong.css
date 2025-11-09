@@ -80,12 +80,28 @@
         .sort-bar .results-count { font-weight: 600; }
         .sort-bar .sort-options { display: flex; align-items: center; gap: 10px; }
 
-        .sort-options select{
-            padding: 12px; 
-            border: 1px solid var(--border-color);
-            border-radius: 8px; 
-            font-size: 1.1rem;
-        }
+        .sort-links{
+  display:flex; align-items:center; gap:10px; font-weight:600; color:#3a3a3a;
+}
+.sort-links a{
+  text-decoration:none;
+  color:#111827;
+  background:#fff;
+  border:1.5px solid #1f2937;
+  border-radius:10px;
+  padding:6px 10px;
+  transition:all .15s;
+}
+.sort-links a:hover{
+  background:#f3f4f6;
+}
+.sort-links a.active{
+  background:#007bff;
+  border-color:#007bff;
+  color:#fff;
+  box-shadow:0 0 0 3px rgba(0,123,255,.15);
+}
+
 
         /************************************************************/
         /* --- 5. LƯỚI HIỂN THỊ PHÒNG (ĐÃ CẬP NHẬT THEO ẢNH) --- */
