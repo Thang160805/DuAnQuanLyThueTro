@@ -146,22 +146,22 @@ body {
 
 /* Thông báo lỗi */
 .error-message {
- /* Ẩn ban đầu, JS sẽ cho hiện ra */
-    background-color: #f8d7da; /* Màu nền hồng nhạt (giống hình) */
+    background-color: #f8d7da; /* Màu nền hồng nhạt */
     color: #721c24; /* Màu chữ đỏ sẫm */
     border: 1px solid #f5c6cb; /* Viền hồng đậm hơn */
     border-radius: 8px; /* Bo góc */
     padding: 0.85rem 1rem; /* Tăng padding */
     font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 15px; /* Giữ khoảng cách */
-    
-    /* Dùng Flexbox để căn icon và text */
-    display: none;
+    margin-bottom: 15px; /* Giữ khoảng cách giữa các phần */
+
+    display: flex; /* Thêm để căn icon + text */
     align-items: center;
     gap: 0.6rem; /* Khoảng cách giữa icon và text */
-}
 
+    width: 100%; /* Chiếm toàn bộ chiều ngang container */
+    min-height: 45px; /* ✅ đảm bảo có chiều cao dù nội dung ngắn */
+}
 /* Kiểu cho icon bên trong */
 .error-message i {
     color: #dc3545; /* Màu đỏ cho icon */
