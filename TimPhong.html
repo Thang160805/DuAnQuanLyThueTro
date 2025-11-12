@@ -49,52 +49,73 @@
         <div class="search-page-layout">
 
             <aside class="filter-sidebar">
-                <form id="filter-form" action="TimKiemServlet" method="GET">
-                    <h3>Bộ lọc tìm kiếm</h3>
-                    <div class="filter-group">
-                        <label for="keyword">Tìm theo từ khóa</label>
-                        <input type="text" id="keyword" name="keyword" placeholder="Ví dụ: đường Lê Duẩn...">
-                    </div>
-                    <div class="filter-group">
-                        <label for="location">Khu vực</label>
-                        <select id="location" name="khuVuc">
-                            <option value="">Tất cả khu vực</option>
-                            <option value="ben_thuy">P. Bến Thủy</option>
-                            <option value="trung_do">P. Trung Đô</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="price-range">Mức giá</label>
-                        <div class="price-range">
-                            <span>0 đ</span>
-                            <span id="price-value">10.000.000 đ</span>
-                        </div>
-                        <input type="range" id="price-range" name="mucGia" min="0" max="10000000" step="500000"
-                            value="10000000">
-                    </div>
-                    <div class="filter-group">
-                        <label for="area-range">Diện tích (m²)</label>
-                        <div class="price-range">
-                            <span>0 m²</span>
-                            <span id="area-value">50 m²</span>
-                        </div>
-                        <input type="range" id="area-range" name="dienTich" min="0" max="50" step="1" value="50">
-                    </div>
-                    <div class="filter-group">
-                        <label>Tiện ích</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="dieuhoa"> Điều
-                                hòa</label>
-                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="nonglanh"> Nóng
-                                lạnh</label>
-                            <label class="checkbox-item"><input type="checkbox" name="tienIch" value="wifi">
-                                Wifi</label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-apply-filter">
-                        <i class="fas fa-filter"></i> Áp dụng
-                    </button>
-                </form>
+                <h3>Bộ lọc tìm kiếm</h3>
+
+                <!-- 🔍 Tìm kiếm -->
+                <div class="filter-group">
+                    <label for="keyword">Tìm theo từ khóa</label>
+                    <form action="TimPhong.html" method="get" class="search-inline">
+                        <input type="text" id="keyword" name="search" placeholder="Ví dụ: đường Lê Duẩn..." />
+                        <button type="submit">Tìm</button>
+                    </form>
+                </div>
+
+                <!-- 📍 Khu vực -->
+                <div class="filter-group">
+                    <label>Khu vực</label>
+                    <ul class="filter-list">
+                        <li><a href="TimPhong.html">Tất cả khu vực</a></li>
+                        <li><a href="TimPhong.html?khuVuc=ben_thuy">P. Bến Thủy</a></li>
+                        <li><a href="TimPhong.html?khuVuc=trung_do">P. Trung Đô</a></li>
+                        <li><a href="TimPhong.html?khuVuc=le_loi">P. Lê Lợi</a></li>
+                    </ul>
+                </div>
+
+                <!-- 💰 Mức giá -->
+                <div class="filter-group">
+                    <label>Mức giá</label>
+                    <ul class="filter-list">
+                        <li><a href="TimPhong.html?mucGia=1000000">≤ 1.000.000 đ</a></li>
+                        <li><a href="TimPhong.html?mucGia=2000000">≤ 2.000.000 đ</a></li>
+                        <li><a href="TimPhong.html?mucGia=3000000">≤ 3.000.000 đ</a></li>
+                        <li><a href="TimPhong.html?mucGia=5000000">≤ 5.000.000 đ</a></li>
+                    </ul>
+                </div>
+
+                <!-- 📐 Diện tích -->
+                <div class="filter-group">
+                    <label>Diện tích (m²)</label>
+                    <ul class="filter-list">
+                        <li><a href="TimPhong.html?dienTich=15">≤ 15 m²</a></li>
+                        <li><a href="TimPhong.html?dienTich=25">≤ 25 m²</a></li>
+                        <li><a href="TimPhong.html?dienTich=35">≤ 35 m²</a></li>
+                        <li><a href="TimPhong.html?dienTich=50">≤ 50 m²</a></li>
+                    </ul>
+                </div>
+
+                <!-- 🧩 Tiện ích: nhiều lựa chọn -->
+                <div class="filter-group">
+                    <label>Tiện ích</label>
+                    <form action="TimPhong.html" method="get" class="utilities-form">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="tienIch[]" value="dieuhoa" /> Điều hòa
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="tienIch[]" value="nonglanh" /> Nóng lạnh
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="tienIch[]" value="wifi" /> Wi-Fi
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="tienIch[]" value="maygiat" /> Máy giặt
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="tienIch[]" value="bancong" /> Ban công
+                        </label>
+
+                        <button type="submit" class="btn-apply">Áp dụng</button>
+                    </form>
+                </div>
             </aside>
 
             <section class="results-area">

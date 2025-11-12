@@ -24,48 +24,153 @@
             padding: 30px 0;
         }
 
-        /* --- 3. Cột Lọc (Giữ nguyên) --- */
-        .filter-sidebar {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--card-shadow);
-            position: sticky;
-            top: 30px;
-            height: fit-content;
-        }
-        
-        .filter-sidebar h3 {
-            font-size: 2.3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-        
-        .filter-group { margin-bottom: 25px; }
-        .filter-group label { display: block; font-weight: 600; margin-bottom: 10px; }
-        
-        .filter-group input[type="text"],
-        .filter-group select {
-            width: 100%; padding: 12px; border: 1px solid var(--border-color);
-            border-radius: 8px; font-size: 1.1rem;
-        }
-        .price-range {
-            display: flex; justify-content: space-between;
-            font-weight: 600; margin-bottom: 10px;
-        }
-        .price-range span { color: var(--primary-color); }
-        input[type="range"] { width: 100%; cursor: pointer; }
-        .checkbox-group { max-height: 150px; overflow-y: auto; }
-        .checkbox-item { display: block; margin-bottom: 10px; }
-        .checkbox-item input { margin-right: 8px; }
-        
-        .btn-apply-filter {
-            width: 100%; padding: 12px; font-size: 1.1rem; font-weight: 700;
-            color: #fff; background: var(--primary-color); border: none;
-            border-radius: 8px; cursor: pointer;
-        }
+/* --- 1. Container Sidebar Chính --- */
+.filter-sidebar {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    position: sticky;
+    top: 30px;
+    height: fit-content;
+}
+
+.filter-sidebar h3 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* --- 2. CSS cho Form Tìm Kiếm (Giữ nguyên) --- */
+.search-inline {
+    display: flex;
+}
+
+.search-inline input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px 0 0 8px;
+    font-size: 1.1rem;
+    border-right: none;
+    outline: none;
+}
+
+.search-inline input[type="text"]:focus {
+    border-color: var(--primary-color);
+}
+
+.search-inline button {
+    padding: 0 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-inline button:hover {
+    background: #0056b3;
+}
+
+/* --- 3. CSS cho các Danh sách Link (Giữ nguyên) --- */
+.filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter-list a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-list a:hover {
+    background-color: #f4f7f6;
+    color: #000;
+}
+
+/* QUAN TRỌNG: Bạn cần dùng code (ví dụ: JSP/JSTL) 
+   để thêm class "active" vào link đang được chọn 
+*/
+.filter-list a.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- 4. MỚI: CSS cho Form Tiện ích (Checkboxes) --- */
+.utilities-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Khoảng cách giữa các checkbox */
+}
+
+.checkbox-item {
+    display: flex; /* Dùng flex để căn chỉnh */
+    align-items: center; /* Căn giữa checkbox và chữ */
+    font-size: 1.1rem;
+    color: #333;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.checkbox-item:hover {
+    background-color: #f4f7f6;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+    /* Làm checkbox lớn hơn và đổi màu */
+    transform: scale(1.1);
+    accent-color: var(--primary-color);
+}
+
+/* Nút "Áp dụng" cho form tiện ích */
+.btn-apply {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px; /* Khoảng cách với checkbox cuối */
+    transition: background-color 0.3s;
+}
+
+.btn-apply:hover {
+    background: #0056b3;
+}
 
         /* --- 4. Khu vực Kết quả & Sắp xếp (Giữ nguyên) --- */
         .results-area { min-width: 0; }
